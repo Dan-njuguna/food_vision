@@ -12,6 +12,15 @@
 - The project utilises TensorFlow module to create an artificial neural network that learns different foods and their labels.
 - The dataset is fully images of various foods that has is used to train the neural network.
 
+## Workflow
+
+1. Examine and understand data: Data Exploration
+2. Build an input pipeline: To load data directly from local disk.
+3. Build the model: model creation.
+4. Train the model: Training the network.
+5. Test the model: To check if the model works without overfitting or underfitting or error.
+6. Improve the model and repeatedly redo all the steps.
+
 ### Prerequisites
 
 - Good understanding of TensorFlow, and Machine Learning concepts.
@@ -23,7 +32,6 @@ pip3 install tf-nightly # For a lighter version of tensorflow
 ```
 
 - Download the dataset [Food Vision](https://www.kaggle.com/datasets/trolukovich/food11-image-dataset)
-
 - Now, let's role and let the computer see👀!
 
 ## Observations
