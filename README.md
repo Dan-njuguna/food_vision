@@ -9,8 +9,14 @@
 
 ## Project Scope
 
-- The project utilises TensorFlow module to create an artificial neural network that learns different foods and their labels.
-- The dataset is fully images of various foods that has is used to train the neural network.
+- In this project, we will make use of **Transfer Learning**, where we will essentially use pretrained models on this dataset from similar already solved problems.
+
+
+### Why Transfer Learning?
+
+- It will reduce training time for our model.
+- Improve on performance since pretrained models learn powerful features from vast datasets which can significantly improve the performance of the model.
+- **ImageNet** model will be used to perform the training of our food classification project.
 
 ## Workflow
 
@@ -24,7 +30,7 @@
 ### Prerequisites
 
 - Good understanding of TensorFlow, and Machine Learning concepts.
-- Install TensorFlow.
+- Install TensorFlow:
 
 ```bash
 pip3 install tensorflow # The complete tensorflow framework
@@ -36,16 +42,16 @@ pip3 install tf-nightly # For a lighter version of tensorflow
 
 ## Observations
 
-- It is observable that when the weights are kept constant, the accuracy is generally low as observed when we run one epoch with the base model weighst constant.
+- It is observable that when the weights are kept constant, the accuracy is generally low as observed when we run one epoch with the base model weight constant.
 - Allowing change in the base model weights increases accuracy of the model.
-- After, running five epochs for the model; the accuracy steadily impoves which proves that running more epochs for the model will increase its accuracy:
+- After, running ten epochs for the model; the accuracy steadily impoves which proves that running more epochs for the model will increase its accuracy:
 
 ```Python
 # fine tune the model with very low learning rate
 history = model.fit(
     train_generator, 
     steps_per_epoch = train_generator.n // 32, 
-    epochs = 5, 
+    epochs = 10, 
     callbacks = [checkpointer, earlystopping]
 )
 ```
@@ -60,9 +66,12 @@ evaluate = model.evaluate(
     verbose = 1
 )
 
-print('Accuracy Test : {}'.format(evaluate[1]))
+print(f'Accuracy Test : {evaluate[1]}')
 ```
 
 ## Conclusion
 
-- The convolution neural network predicts the food class with relatively good accuracy at **75.32126307487488%**.
+- The convolution neural network, with transfer learning, predicts the test data food class with relatively high accuracy at **84.22%**.
+- Saving the best accuracy for each training iteration increased the accuracy of the model.
+- Changing the weights of the network as it learns improves its accuracy.
+- The comparatively low learning rate, **0.01**, improves accuracy in the model.
